@@ -247,7 +247,7 @@
 								<el-radio label="否"></el-radio>
 							</el-radio-group>
 						</el-form-item>
-						<el-form-item v-if="form.firstBusiness=='否' " label="创业经历与成果 " prop="achievement">
+						<el-form-item v-if="form.firstBusiness==='否' " label="创业经历与成果 " prop="achievement">
 							<el-input type="textarea" v-model="form.achievement" placeholder="请输入创业经历与成果"></el-input>
 						</el-form-item>
 						<el-form-item label="工作经历 " prop="businessbackground">
@@ -334,7 +334,7 @@
 								<el-option label="近三年年均收入50万以上" value="近三年年均收入50万以上"></el-option>
 								<el-option label="其它" value="其它"></el-option>
 							</el-select>
-							<el-input v-if="form.entrepreneurship=='其它'" placeholder="请输入其它金融资产"></el-input>
+							<el-input v-if="form.entrepreneurship==='其它'" placeholder="请输入其它金融资产"></el-input>
 						</el-form-item>
 					</div>
 					<h3>投资经历</h3>
@@ -894,8 +894,8 @@ export default {
       RegterInformation: false, // FA、基金管理公司、投资机构的注册联系人
       GovReginformation: false, // 政府单位注册信息
       GovRegerinformation: false, // 政府单位注册联系人
-			Tourist: false, // 游客联络信息
-			
+      Tourist: false, // 游客联络信息
+
       rules: {
         name: [{
           required: true,
@@ -1354,45 +1354,45 @@ export default {
     getUserType () {
       var that = this
       console.log(that.RoleId)
-      if (that.RoleId == 1) {
+      if (that.RoleId === 1) {
         that.UserType = '创业者'
         that.ESTP = true // 创业者 1
         that.Reginformation = true// 创业者、投资人、合伙人的注册信息
         that.Eduinformation = true// 创业者、投资人、合伙人的教育信息
         that.Workinformation = true// 创业者、投资人、合伙人的工作信息
-      } else if (that.RoleId == 2) {
+      } else if (that.RoleId === 2) {
         that.UserType = '投资人'
         that.investor = true// 特征信息
         that.Enclosure = false// 附件
         that.Reginformation = true// 创业者、投资人、合伙人的注册信息
         that.Eduinformation = true// 创业者、投资人、合伙人的教育信息
         that.Workinformation = true// 创业者、投资人、合伙人的工作信息
-      } else if (that.RoleId == 3) {
+      } else if (that.RoleId === 3) {
         that.FAInstitution = true// 特征信息
         that.FAReginformation = true// FA注册信息
         that.RegterInformation = true// FA、基金管理公司、投资机构 的注册联系人
         that.EnclosureText = '相关资质证明'
         that.UserType = 'FA机构'
-      } else if (that.RoleId == 4) {
+      } else if (that.RoleId === 4) {
         that.Partner = true
         that.Enclosure = false// 附件
         that.Reginformation = true// 创业者、投资人、合伙人的注册信息
         that.Eduinformation = true// 创业者、投资人、合伙人的教育信息
         that.Workinformation = true// 创业者、投资人、合伙人的工作信息
         that.UserType = '合伙人'
-      } else if (that.RoleId == 5) {
+      } else if (that.RoleId === 5) {
         that.fundcompany = true
         that.FundReginformation = true// 基金管理公司注册信息
         that.RegterInformation = true// FA、基金管理公司、投资机构 的注册联系人
         that.EnclosureText = '相关资质证明'
         that.UserType = '基金管理公司'
-      } else if (that.RoleId == 6) {
+      } else if (that.RoleId === 6) {
         that.InvestmentInstitution = true
         that.InvestReginformation = true// 基金管理公司注册信息
         that.RegterInformation = true// FA、基金管理公司、投资机构 的注册联系人
         that.EnclosureText = '相关资质证明'
         that.UserType = '投资机构'
-      } else if (that.RoleId == 7) {
+      } else if (that.RoleId === 7) {
         that.UserType = '政府'
         that.GovReginformation = true// 政府单位的注册信息
         that.GovRegerinformation = true// 政府单位的注册联系人
@@ -1411,7 +1411,7 @@ export default {
       let token = that.$util.getCookie('token')
       console.log(that)
       console.log(that.form.achievement)
-      // if(that.form.firstBusiness == 0 && that.form.achievement==undefined) {
+      // if(that.form.firstBusiness === 0 && that.form.achievement===undefined) {
       // 	 callback(new Error('请输入创业经历与成果'));
       // } else {
 
@@ -1419,7 +1419,7 @@ export default {
       let data = {}
       console.log(token)
       // 角色为创业者
-      if (that.RoleId == 1) {
+      if (that.RoleId === 1) {
         data = {
           'collectionId': that.RoleId, // 表示创业者
           // 基本信息-注册信息
@@ -1481,7 +1481,7 @@ export default {
         // that.$request.post('/collection/insertCollectionCon',data,token).then(function(res) {
         // 	console.log(res)
         // })
-      } else if (that.RoleId == 2) {
+      } else if (that.RoleId === 2) {
         data = {
           'collectionId': that.RoleId, // 表示投资者
           // 基本信息-注册信息
@@ -1530,7 +1530,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 3) {
+      } else if (that.RoleId === 3) {
         data = {
           'collectionId': that.RoleId, // 表示FA机构
           // 基本信息-注册信息
@@ -1572,7 +1572,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 4) {
+      } else if (that.RoleId === 4) {
         data = {
           'collectionId': that.RoleId, // 表示合伙人
           // 基本信息-注册信息
@@ -1619,7 +1619,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 5) {
+      } else if (that.RoleId === 5) {
         data = {
           'collectionId': that.RoleId, // 表示基金管理公司
           // 基本信息-注册信息
@@ -1663,7 +1663,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 6) {
+      } else if (that.RoleId === 6) {
         data = {
           'collectionId': that.RoleId, // 表示投资机构
           // 基本信息-注册信息
@@ -1704,7 +1704,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 7) {
+      } else if (that.RoleId === 7) {
         data = {
           'collectionId': that.RoleId, // 表示政府
           // 基本信息-注册信息
@@ -1739,7 +1739,7 @@ export default {
             return false
           }
         })
-      } else if (that.RoleId == 8) {
+      } else if (that.RoleId === 8) {
         data = {
           'collectionId': that.RoleId, // 表示游客
           // 基本信息-联络信息

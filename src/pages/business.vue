@@ -55,8 +55,8 @@ export default {
       businessList: [],
       curId: 0,
       nextTitle: '',
-			xiaoyou: false,
-			token: sessionStorage.getItem("token"),
+      xiaoyou: false,
+      token: sessionStorage.getItem('token')
     }
   },
   created () {
@@ -79,13 +79,13 @@ export default {
         that.businessList = res.data.list
         that.nextTitle = res.data.list[0].businessTitle
       }).catch(err => {
-        //					console.log(error)
+        console.log(err)
       })
     },
     tab (index, item) {
       var that = this
       that.curId = index
-      if (item.businessTitle == '江海英才校友总会') {
+      if (item.businessTitle === '江海英才校友总会') {
         that.xiaoyou = true
       }
       that.nextTitle = item.businessTitle
@@ -93,7 +93,7 @@ export default {
     // 跳转
     skip () {
       var that = this
-      if (that.id == 12) {
+      if (that.id === 12) {
         that.$router.push({
           path: '/product',
           query: {

@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 <template>
 	<div class="about">
 		<towtop></towtop>
@@ -15,38 +16,37 @@
 </template>
 
 <script>
-	import towtop from '@/components/testTop'
-	import towbottom from '@/components/testBottom'
-	export default {
-		data() {
-			return {
-				businessTitle: "此刻相识",
-        businessTitleEng: 'About Us',
-				headerBg: 'headerBg',
-				imgUrl:'../../static/images/logo.png',
-				desc:'',
-				token: sessionStorage.getItem("token"),
-			}
-			
-		},
-		created(){
-			this.getAbout()
-		},
-		components: {
-			towtop,
-			towbottom
-		},
-		methods:{
-			getAbout() {
-				var about = {}
-				this.$request.post("aboutMe/selectAboutUs", about, this.token).then(res => {
-					this.desc=res.data.list[0].aboutUs
-				}).catch(err => {
-					console.log(error)
-				});
-			},
-		}
-	}
+import towtop from '@/components/testTop'
+import towbottom from '@/components/testBottom'
+export default {
+  data () {
+    return {
+      businessTitle: '此刻相识',
+      businessTitleEng: 'About Us',
+      headerBg: 'headerBg',
+      imgUrl: '../../static/images/logo.png',
+      desc: '',
+      token: sessionStorage.getItem('token')
+    }
+  },
+  created () {
+    this.getAbout()
+  },
+  components: {
+    towtop,
+    towbottom
+  },
+  methods: {
+    getAbout () {
+      var about = {}
+      this.$request.post('aboutMe/selectAboutUs', about, this.token).then(res => {
+        this.desc = res.data.list[0].aboutUs
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -61,8 +61,8 @@
 		margin-bottom: 100px;
 		padding-top:40px;
 		display: flex;
-	    flex-direction: row;
-	    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
 	}
 	.kbox1Bg p{
 		text-indent: 2em;
