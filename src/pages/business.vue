@@ -8,16 +8,15 @@
           <p>{{engTitle}}</p>
         </div>
       </div>
-
       <div class="newContent fadeInUp animated">
         <p>{{content}}</p>
       </div>
       <ul class="fenlei list-unstyled text-center list-inline fadeInUp animated">
-        <li @click="tab(index,item)" v-for="(item,index) in businessList">
+        <li @click="tab(index,item)" v-for="(item,index) in businessList" :key='item.id'>
           <a :class="{active : index===curId}" class="m2menu_a">{{item.businessTitle}}</a>
         </li>
       </ul>
-      <div v-show="index===curId" v-for="(content, index) in businessList">
+      <div v-show="index===curId" v-for="(content, index) in businessList" :key='content.id'>
         <div class="flexCenter">
           <div class="title fadeInUp animated">
             <h3>{{content.businessTitle}}</h3>
@@ -47,10 +46,10 @@ import towbottom from '@/components/testBottom'
 export default {
   data () {
     return {
-      id: this.$route.query.id,
-      title: this.$route.query.title,
-      engTitle: this.$route.query.engTitle,
-      content: this.$route.query.content,
+      id: this.$route.params.id,
+      title: this.$route.params.title,
+      engTitle: this.$route.params.engTitle,
+      content: this.$route.params.content,
       businessList: [],
       curId: 0,
       nextTitle: '',
@@ -68,6 +67,7 @@ export default {
   methods: {
     getData () {
       var that = this
+      console.log(this.$route.params.title)
       var data = {
         curPage: 1,
         pageSize: 20,

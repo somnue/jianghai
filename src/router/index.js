@@ -134,6 +134,7 @@ export default new Router({
   },
   {
     path: '/business',
+    name: 'business',
     component: business,
     meta: {
       title: '江海业务-江海天空'

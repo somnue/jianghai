@@ -7,6 +7,9 @@
         <p>{{businessTitleEng}}</p>
       </div>
     </div>
+    <span style="width:30px;height:30px;background:red">
+      {{test}}
+    </span>
     <div class="box1Top container">
       <p>{{desc}}</p>
     </div>
@@ -29,7 +32,8 @@ export default {
       headerBg: 'headerBg',
       imgUrl: '../../static/images/logo.png',
       desc: '',
-      token: sessionStorage.getItem('token')
+      token: sessionStorage.getItem('token'),
+      test: '测试的'
     }
   },
   created () {
